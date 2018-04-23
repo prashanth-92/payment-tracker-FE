@@ -1,0 +1,37 @@
+[
+    {
+        "id" : 1,
+        "name" : "Prashanth R",
+        "school" : "SNMSSS",
+        "contactno": "12345678",
+        "feespaid" : "8500"
+    },
+    {
+        "id" : 1,
+        "name" : "Abhishek R",
+        "school" : "CV",
+        "contactno": "12345678",
+        "feespaid" : "8500"
+    },
+    {
+        "id" : 1,
+        "name" : "Praveen",
+        "school" : "DAV",
+        "contactno": "12345678",
+        "feespaid" : "8500"
+    },
+    {
+        "id" : 1,
+        "name" : "Sanjay",
+        "school" : "JV",
+        "contactno": "12345678",
+        "feespaid" : "8500"
+    },
+    {
+        "id" : 1,
+        "name" : "Nikitha",
+        "school" : "PSBB",
+        "contactno": "12345678",
+        "feespaid" : "8500"
+    }
+]

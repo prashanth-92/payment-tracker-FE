@@ -1,0 +1,74 @@
+  <div class="container">
+    <div *ngIf = "isCardView!">
+        <div class="row">
+            <div class="col s12 m6" *ngFor = "let student of students">
+              <div class="card blue darken-1">
+                
+                <div class="card-content white-text">
+                  <span class="card-title activator">{{student.name}}<i class="material-icons right">more_vert</i></span>
+                  <p><i class="fas fa-university fa-2x"></i><span style="font-size:20px"> {{student.school}}</span></p>
+                  <p><i class="fas fa-phone fa-2x"></i><span style="font-size:20px"> {{student.contactno}}</span></p>
+                  <p><i class="fas fa-rupee-sign fa-2x"></i><span style="font-size:20px"> {{student.feespaid}}</span></p>
+                </div>
+                <div class="card-action">
+                  <a class="waves-effect waves yellow btn-small"><span style="color:black">Add Payment</span></a>
+                  <a class="waves-effect waves yellow btn-small"><span style="color:black">View Payment</span></a>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">{{student.name}}<i class="material-icons right">close</i></span>
+                    
+                      <div class="row">
+                      <div class="input-field col s12 m6">
+                          <i class="fas fa-rupee-sign fa-lg prefix"></i>                          
+                          <input id="icon_prefix" type="number" maxlength="5" class="validate">
+                          <label for="icon_prefix">Amount</label>
+                      </div>
+                      <div class="col s12 m6">
+                          <div class="switch">
+                              <label>
+                                Cash
+                                <input type="checkbox">
+                                <span class="lever"></span>
+                                Cheque
+                              </label>
+                            </div>
+                      </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div *ngIf = "!isCardView!">
+    <table class="responsive-table highlight">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>School</th>
+        <th>Contact Number</th>
+        <th>Fees paid</th>
+        <th>Payment</th>
+      </tr>
+      <tr *ngFor = "let student of students">
+        <td>
+          {{student.id}}
+        </td>
+        <td>
+          {{student.name}}
+        </td>
+        <td>
+          {{student.school}}
+        </td>
+        <td>
+          {{student.contactno}}
+        </td>
+        <td>
+          {{student.feespaid}}
+        </td>
+        <td>
+          <a class="waves-effect waves-light btn">Add Payment</a>          
+        </td>
+      </tr>
+    </table>
+  </div>
+  </div>
