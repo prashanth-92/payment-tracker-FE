@@ -1,29 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { DataFetchService } from '../data-fetch.service';
 import { DataSaveService } from '../data-save.service';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-student-list',
-  templateUrl: './student-list.component.html',
-  styleUrls: ['./student-list.component.css']
+  selector: 'app-student-table',
+  templateUrl: './student-table.component.html',
+  styleUrls: ['./student-table.component.css']
 })
-export class StudentListComponent implements OnInit { 
-  isCardView : boolean = true; 
+export class StudentTableComponent implements OnInit {
   students: any;
   constructor(private dataFetchService: DataFetchService,
-    private dataSaveService: DataSaveService, private router: Router) { }
-  
-  ngOnInit() { 
-     //this.getStudentDetails();
+    private dataSaveService: DataSaveService) { }
+
+  ngOnInit() {
+    this.getStudentDetails();
   }
   getStudentDetails(){
     this.dataFetchService.getStudents().subscribe((data) => this.students = data);
   }
   savePayment(student){
     this.dataSaveService.addPayment(student).subscribe(() => console.log("done"));
-  }
-  addStudent(){
-    this.router.navigateByUrl('/add-student');
   }
 }

@@ -1,0 +1,30 @@
+<table class="responsive-table highlight">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>School</th>
+      <th>Contact Number</th>
+      <th>Fees paid</th>
+      <th>Payment</th>
+    </tr>
+    <tr *ngFor = "let student of students">
+      <td>
+        {{student.id}}
+      </td>
+      <td>
+        {{student.name}}
+      </td>
+      <td>
+        {{student.school}}
+      </td>
+      <td>
+        {{student.contactno}}
+      </td>
+      <td>
+        {{student.feespaid}}
+      </td>
+      <td>
+        <a class="waves-effect waves-light btn">Add Payment</a>          
+      </td>
+    </tr>
+  </table>
