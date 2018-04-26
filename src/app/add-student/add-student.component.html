@@ -1,7 +1,7 @@
 <div class="container">
 <div class="row">
     <div class="col s12 m12">
-      <div class="card medium blue darken-1">
+      <div class="card blue darken-1">
         <div class="card-content white-text">
           <span class="card-title">Add Student</span>
           <div class="row">
@@ -39,6 +39,18 @@
                       <option>Science</option>
                       </select>
                       <label>Subject (s)</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12 m6">
+                    <i class="fa fa-university fa-lg prefix" aria-hidden="true"></i>                  
+                    <select materialize="material_select" [(ngModel)]="student.class">
+                        <option>IX</option>
+                        <option>X</option>
+                        <option>XI</option>
+                        <option>XII</option>
+                    </select>
+                      <label>School</label>
                 </div>
               </div>
         </div>
