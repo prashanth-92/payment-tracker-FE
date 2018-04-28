@@ -23,7 +23,6 @@ export class StudentCardComponent implements OnInit {
       this.classId = routeParams.classId;
       this.getStudentDetails(routeParams.classId);
     });
-    //this.getStudentDetails();
   }
   getStudentDetails(classId){
     this.dataFetchService.getStudents(classId).subscribe((data) => this.students = data);
@@ -32,8 +31,6 @@ export class StudentCardComponent implements OnInit {
     this.dataSaveService.addPayment(student).subscribe(() => {
       this.students = [];
       this.getStudentDetails(this.classId);
-      //this.router.navigateByUrl("/#/student-list/"+this.classId);
-      //window.location.reload();
     });
   }
   addCardRevalMode(){

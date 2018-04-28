@@ -19,7 +19,6 @@ export class ClassPickerComponent implements OnInit {
   }
 
   goTo(classVal){
-    //console.log(classVal);
     this.router.navigateByUrl("/student-list/"+classVal);
   }
 
