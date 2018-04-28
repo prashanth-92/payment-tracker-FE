@@ -11,8 +11,9 @@ export class AddStudentComponent implements OnInit {
   student = {
     name: '',
     tel: '',
-    school : '',
-    subjects :[]
+    school : 'SBSM',
+    subjects :['Maths'],
+    class: 'IX'
   };
   constructor(private dataSaveService: DataSaveService, private router: Router) { }
 
