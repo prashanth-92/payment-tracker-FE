@@ -12,8 +12,8 @@ export class DataFetchService {
   
   constructor(private http: HttpClient) { }
   
-  getStudents() {
-    return this.http.get(this.studentServiceUrl);
+  getStudents(classId) {
+    return this.http.get(this.studentServiceUrl+"/"+classId);
   }
   getPayments(studentId) {
     return this.http.get(this.paymentServiceUrl+"/"+studentId);

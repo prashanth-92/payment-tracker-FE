@@ -26,7 +26,7 @@ const AppRoutes: Routes = [
     path: 'class-pick', component: ClassPickerComponent
   },
   {
-    path: 'student-list/:class', component: StudentListComponent
+    path: 'student-list/:classId', component: StudentListComponent
   },
   {
     path: 'add-student', component: AddStudentComponent

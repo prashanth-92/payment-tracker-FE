@@ -16,7 +16,7 @@ export class StudentTableComponent implements OnInit {
     this.getStudentDetails();
   }
   getStudentDetails(){
-    this.dataFetchService.getStudents().subscribe((data) => this.students = data);
+    //this.dataFetchService.getStudents().subscribe((data) => this.students = data);
   }
   savePayment(student){
     this.dataSaveService.addPayment(student).subscribe(() => console.log("done"));

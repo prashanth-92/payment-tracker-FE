@@ -12,10 +12,10 @@ export class ClassPickerComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    this.classes.push("9");
-    this.classes.push("10");
-    this.classes.push("11");
-    this.classes.push("12");
+    this.classes.push("IX");
+    this.classes.push("X");
+    this.classes.push("XI");
+    this.classes.push("XII");
   }
 
   goTo(classVal){

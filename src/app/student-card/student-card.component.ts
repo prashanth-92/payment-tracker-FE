@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataFetchService } from '../data-fetch.service';
 import { DataSaveService } from '../data-save.service';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-student-card',
@@ -10,19 +12,28 @@ import { DataSaveService } from '../data-save.service';
 export class StudentCardComponent implements OnInit {
   students: any;
   payments: any;
+  classId: String;
   addPaymentCardRevealMode: boolean = false;
   constructor(private dataFetchService: DataFetchService,
-    private dataSaveService: DataSaveService) { }
+    private dataSaveService: DataSaveService, private activeRoute: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
-    this.getStudentDetails();
+    this.activeRoute.params.subscribe(routeParams => {
+      this.classId = routeParams.classId;
+      this.getStudentDetails(routeParams.classId);
+    });
+    //this.getStudentDetails();
   }
-  getStudentDetails(){
-    this.dataFetchService.getStudents().subscribe((data) => this.students = data);
+  getStudentDetails(classId){
+    this.dataFetchService.getStudents(classId).subscribe((data) => this.students = data);
   }
   savePayment(student){
     this.dataSaveService.addPayment(student).subscribe(() => {
-      window.location.reload();
+      this.students = [];
+      this.getStudentDetails(this.classId);
+      //this.router.navigateByUrl("/#/student-list/"+this.classId);
+      //window.location.reload();
     });
   }
   addCardRevalMode(){
@@ -35,8 +46,4 @@ export class StudentCardComponent implements OnInit {
   getPayments(studentId){
     this.dataFetchService.getPayments(studentId).subscribe((data) => this.payments = data);
   }
-}
-export class Payments{
-  studentId: String;
-  payments: any;
 }
