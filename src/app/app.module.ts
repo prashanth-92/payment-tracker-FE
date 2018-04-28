@@ -47,7 +47,7 @@ const AppRoutes: Routes = [
     MaterializeModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(AppRoutes)
+    RouterModule.forRoot(AppRoutes, { useHash: true })
   ],
   exports:[
     RouterModule
