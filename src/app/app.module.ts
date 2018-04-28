@@ -17,6 +17,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { StudentCardComponent } from './student-card/student-card.component';
 import { StudentTableComponent } from './student-table/student-table.component';
 import { AddStudentComponent } from './add-student/add-student.component';
+import { FilterStudents } from  './filter-students';
 
 const AppRoutes: Routes = [
   { 
@@ -39,7 +40,8 @@ const AppRoutes: Routes = [
     StudentListComponent,
     StudentCardComponent,
     StudentTableComponent,
-    AddStudentComponent
+    AddStudentComponent,
+    FilterStudents
   ],
   imports: [
     BrowserModule,

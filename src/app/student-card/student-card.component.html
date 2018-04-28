@@ -1,5 +1,11 @@
 <div class="row">
-<div class="col s12 m6" *ngFor = "let student of students">
+    <div class="input-field col s12">
+      <input placeholder="Search By Name" id="search" type="text" class="validate" [(ngModel)]="searchText">
+      <label for="search">Search By Name</label>
+    </div>
+</div>
+<div class="row">
+<div class="col s12 m6" *ngFor = "let student of students  | filter : searchText">
   <div class="card blue darken-1">
     <div class="card-content white-text">
       <span class="card-title">{{student.name}}<i class="material-icons right">more_vert</i></span>
@@ -38,19 +44,18 @@
           <div *ngIf = "!addPaymentCardRevealMode">
             <table>
               <tr>
-                <th>Installment #</th>
+                <th>#</th>
                 <th>Amount</th>
-                <th>Modified Date</th>
+                <th>Payment Date</th>
               </tr>
               <tr *ngFor="let payment of payments;index as i">
                   <td>{{i+1}}</td>
                   <td>{{payment.amount}}</td>
-                  <td>{{payment.dateModified}}</td>
+                  <td>{{payment.dateModified | date:"dd/MM/yyyy" }}</td>
               </tr>
             </table>
           </div>
       </div>
-
   </div>
 </div>
 </div>
