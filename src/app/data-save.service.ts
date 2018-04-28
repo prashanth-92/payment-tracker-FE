@@ -4,10 +4,14 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class DataSaveService {
 
-  private serviceUrl = "";
+  private studentServiceUrl = "/api/student";
+  private paymentServiceUrl = "/api/payment";
   constructor(private http: HttpClient) { }
   
   addPayment(data){
-    return this.http.post(this.serviceUrl, data);
+    return this.http.post(this.paymentServiceUrl, data);
+  }
+  addStudent(data){
+    return this.http.post(this.studentServiceUrl, data);
   }
 }

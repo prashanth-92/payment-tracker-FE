@@ -4,12 +4,12 @@
     <div class="card-content white-text">
       <span class="card-title">{{student.name}}<i class="material-icons right">more_vert</i></span>
       <p><i class="fas fa-university fa-2x"></i><span style="font-size:20px"> {{student.school}}</span></p>
-      <p><i class="fas fa-phone fa-2x"></i><span style="font-size:20px"> {{student.contactno}}</span></p>
-      <p><i class="fas fa-rupee-sign fa-2x"></i><span style="font-size:20px"> {{student.feespaid}}</span></p>
+      <p><i class="fas fa-phone fa-2x"></i><span style="font-size:20px"> {{student.contactNumber}}</span></p>
+      <p><i class="fas fa-rupee-sign fa-2x"></i><span style="font-size:20px"> {{student.amount}}</span></p>
     </div>
     <div class="card-action">
       <a class="waves-effect waves yellow btn-small activator" (click)="addCardRevalMode()"><span class="activator" style="color:black">Add Payment</span></a>
-      <a class="waves-effect waves yellow btn-small activator" (click)="viewCardRevalMode()"><span class="activator" style="color:black">View Payments</span></a>
+      <a class="waves-effect waves yellow btn-small activator" (click)="viewCardRevalMode(student._id)"><span class="activator" style="color:black">View Payments</span></a>
     </div>
     <div class="card-reveal">
         <span class="card-title grey-text text-darken-4">{{student.name}}<i class="material-icons right">close</i></span>
@@ -17,14 +17,14 @@
           <div class="row">
           <div class="input-field col s12 m6">
               <i class="fas fa-rupee-sign fa-lg prefix"></i>                          
-              <input id="icon_prefix" [(ngModel)]="student.amount" type="number" maxlength="5" class="validate">
+              <input id="icon_prefix" [(ngModel)]="student.installment" type="number" maxlength="5" class="validate">
               <label for="icon_prefix">Amount</label>
           </div>
           <div class="col s12 m6">
               <div class="switch">
                   <label>
                     Cash
-                    <input type="checkbox" [(ngModel)]="student.mode">
+                    <input type="checkbox" [(ngModel)]="student.isCheque">
                     <span class="lever"></span>
                     Cheque
                   </label>
@@ -42,10 +42,10 @@
                 <th>Amount</th>
                 <th>Modified Date</th>
               </tr>
-              <tr *ngFor="let payment of payments">
-                  <td>{{payment.id}}</td>
+              <tr *ngFor="let payment of payments;index as i">
+                  <td>{{i+1}}</td>
                   <td>{{payment.amount}}</td>
-                  <td>{{payment.date}}</td>
+                  <td>{{payment.dateModified}}</td>
               </tr>
             </table>
           </div>

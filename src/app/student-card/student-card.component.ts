@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataFetchService } from '../data-fetch.service';
 import { DataSaveService } from '../data-save.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-student-card',
@@ -12,7 +13,7 @@ export class StudentCardComponent implements OnInit {
   payments: any;
   addPaymentCardRevealMode: boolean = false;
   constructor(private dataFetchService: DataFetchService,
-    private dataSaveService: DataSaveService) { }
+    private dataSaveService: DataSaveService, private router: Router) { }
 
   ngOnInit() {
     this.getStudentDetails();
@@ -21,17 +22,19 @@ export class StudentCardComponent implements OnInit {
     this.dataFetchService.getStudents().subscribe((data) => this.students = data);
   }
   savePayment(student){
-    this.dataSaveService.addPayment(student).subscribe(() => console.log("done"));
+    this.dataSaveService.addPayment(student).subscribe(() => {
+      this.router.navigateByUrl("/student-list/9");
+    });
   }
   addCardRevalMode(){
     this.addPaymentCardRevealMode = true;
   }
-  viewCardRevalMode(){
+  viewCardRevalMode(studentId){
     this.addPaymentCardRevealMode = false;
-    this.getPayments();
+    this.getPayments(studentId);
   }
-  getPayments(){
-    this.dataFetchService.getPayments().subscribe((data: Payments) => this.payments = data.payments);
+  getPayments(studentId){
+    this.dataFetchService.getPayments(studentId).subscribe((data) => this.payments = data);
   }
 }
 export class Payments{

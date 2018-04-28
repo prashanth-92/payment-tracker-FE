@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
-declare var jQuery: any;
+import { DataSaveService } from '../data-save.service'
 
 @Component({
   selector: 'app-add-student',
@@ -14,13 +13,14 @@ export class AddStudentComponent implements OnInit {
     school : '',
     subjects :[]
   };
-  constructor() { }
+  constructor(private dataSaveService: DataSaveService) { }
 
   ngOnInit() {
     
   }
   addStudent(){
     console.log(this.student);
+    this.dataSaveService.addStudent(this.student).subscribe((data) => console.log(data));
   }
 
 }
